@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-os-project
+  template:
+    metadata:
+      name: my-os-project
+      labels:
+        app: my-os-project
+    spec:
+      containers:
+        - name: myapp
+          image: 7amok4a/project
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
